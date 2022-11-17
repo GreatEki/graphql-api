@@ -33,6 +33,17 @@ const resolvers = {
       return favMovies;
     },
   },
+
+  Mutation: {
+    createUser: (parent, args) => {
+      const user = args.input;
+      //   get last id in UserList
+      const lastId = UserList[UserList.length - 1].id;
+      user.id = lastId + 1;
+      UserList.push(user);
+      return user;
+    },
+  },
 };
 
 export default resolvers;
