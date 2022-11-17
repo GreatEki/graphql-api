@@ -59,6 +59,15 @@ const resolvers = {
 
       return updatedUser;
     },
+
+    deleteUser: (parent, args) => {
+      const { id } = args;
+      const theUser = UserList.find((user) => user.id === Number(id));
+      if (!theUser) return null;
+
+      const filteredUsers = UserList.filter((user) => user.id !== theUser.id);
+      return `User ${theUser.name} deleted`;
+    },
   },
 };
 
