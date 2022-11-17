@@ -65,7 +65,7 @@ const resolvers = {
       const theUser = UserList.find((user) => user.id === Number(id));
       if (!theUser) return null;
 
-      const filteredUsers = UserList.filter((user) => user.id !== theUser.id);
+      UserList.filter((user) => user.id !== theUser.id);
       return `User ${theUser.name} deleted`;
     },
   },
