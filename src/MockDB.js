@@ -63,4 +63,25 @@ const UserList = [
   },
 ];
 
-export default UserList;
+const MovieList = [
+  {
+    id: 1,
+    name: "Avengers Endgame",
+    yearOfPublication: 2019,
+    isInTheaters: true,
+  },
+  {
+    id: 2,
+    name: "Interstellar",
+    yearOfPublication: 2007,
+    isInTheaters: true,
+  },
+  {
+    id: 3,
+    name: "Superbad",
+    yearOfPublication: 2010,
+    isInTheaters: true,
+  },
+];
+
+export { UserList, MovieList };

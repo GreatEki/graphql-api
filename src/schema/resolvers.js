@@ -1,4 +1,4 @@
-import UserList from "../MockDB.js";
+import { UserList, MovieList } from "../MockDB.js";
 
 const resolvers = {
   Query: {
@@ -10,6 +10,16 @@ const resolvers = {
       const user = UserList.find((user) => user.id === Number(id));
 
       return user;
+    },
+
+    movies: () => {
+      return MovieList;
+    },
+
+    movie: (_, args) => {
+      const name = args.name;
+      const movie = MovieList.find((mv) => mv.name === name);
+      return movie;
     },
   },
 };
