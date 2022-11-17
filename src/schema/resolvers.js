@@ -22,6 +22,17 @@ const resolvers = {
       return movie;
     },
   },
+
+  //   creating a resolve for custom type definitions
+  User: {
+    favouriteMovies: () => {
+      const favMovies = MovieList.filter(
+        (movie) =>
+          movie.yearOfPublication >= 2000 && movie.yearOfPublication <= 2010
+      );
+      return favMovies;
+    },
+  },
 };
 
 export default resolvers;
