@@ -1,6 +1,10 @@
 import { UserList, MovieList } from "../MockDB.js";
 import { createUser, deleteUser, updateUser } from "../lib/user/user.mutations";
 import { createBusiness } from "../lib/business/business.mutations.js";
+import {
+  getBusinessess,
+  getBusiness,
+} from "../lib/business/business.queries.js";
 
 const resolvers = {
   Query: {
@@ -23,6 +27,9 @@ const resolvers = {
       const movie = MovieList.find((mv) => mv.name === name);
       return movie;
     },
+
+    getBusinesses: getBusinessess,
+    getBusiness: getBusiness,
   },
 
   Mutation: {

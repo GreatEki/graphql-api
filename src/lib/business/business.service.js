@@ -13,3 +13,9 @@ export function createBusinessService(business) {
   Business.push(business);
   return business;
 }
+
+export function getBusinessService(businessId) {
+  const business = Business.find((bus) => bus.id === Number(businessId));
+
+  return business;
+}

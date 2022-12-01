@@ -22,15 +22,6 @@ const typeDefs = gql`
     owner: ID!
   }
 
-  type Query {
-    users: [User!]!
-    user(id: ID!): User
-    movies: [Movie]
-    movie(name: String!): Movie
-    getBusinesses: [Business]
-    getBusiness(id: ID!): Business
-  }
-
   input CreateUserInput {
     firstName: String!
     lastName: String!
@@ -48,6 +39,15 @@ const typeDefs = gql`
     name: String!
     yearOfEstablishment: Int!
     owner: ID!
+  }
+
+  type Query {
+    users: [User!]!
+    user(id: ID!): User
+    movies: [Movie]
+    movie(name: String!): Movie
+    getBusinesses: [Business]
+    getBusiness(id: ID!): Business
   }
 
   type Mutation {
