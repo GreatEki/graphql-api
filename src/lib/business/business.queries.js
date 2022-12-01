@@ -12,3 +12,10 @@ export const getBusiness = (_, args) => {
 
   return business;
 };
+
+export const getBusinessCustomers = (parent, args) => {
+  const { id } = args;
+
+  const busCustomers = service.getBusinessCustomersService(id);
+  return busCustomers;
+};

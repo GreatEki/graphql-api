@@ -9,6 +9,7 @@ import {
 import {
   getBusinesses,
   getBusiness,
+  getBusinessCustomers,
 } from "../lib/business/business.queries.js";
 
 import {
@@ -34,6 +35,7 @@ const resolvers = {
     getBusiness,
     getCustomers,
     getCustomer,
+    getBusinessCustomers,
   },
 
   Mutation: {

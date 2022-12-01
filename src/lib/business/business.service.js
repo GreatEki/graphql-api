@@ -64,3 +64,13 @@ export function addCustomerToBusinessService(businessId, customerId) {
   BusinessCustomer.push(newBusCustomers);
   return newBusCustomers;
 }
+
+export function getBusinessCustomersService(businessId) {
+  const business = Business.find((bus) => bus.id === Number(businessId));
+  if (!business) throw new NotFoundError("No Business found for record id");
+
+  const busCustomers = BusinessCustomer.find(
+    (el) => el.business.id === Number(business.id)
+  );
+  return busCustomers;
+}
