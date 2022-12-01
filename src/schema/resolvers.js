@@ -1,5 +1,5 @@
 import { UserList, MovieList } from "../MockDB.js";
-import { createUser } from "../lib/user/user.mutations";
+import { createUser, updateUser } from "../lib/user/user.mutations";
 
 const resolvers = {
   Query: {
@@ -27,21 +27,7 @@ const resolvers = {
   Mutation: {
     createUser: createUser,
 
-    updateUser: (parent, args) => {
-      const { id, name, username, age, nationality } = args.input;
-      let updatedUser;
-      UserList.forEach((user) => {
-        if (user.id === Number(id)) {
-          (user.username = username),
-            (user.age = age),
-            (user.nationality = nationality);
-
-          updatedUser = user;
-        }
-      });
-
-      return updatedUser;
-    },
+    updateUser: updateUser,
 
     deleteUser: (parent, args) => {
       const { id } = args;

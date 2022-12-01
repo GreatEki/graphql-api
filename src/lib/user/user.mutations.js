@@ -1,6 +1,6 @@
 import { BadRequestError } from "../../errors";
 import { CreateUserVal } from "./user.validation";
-import { createUserService } from "./user.service";
+import { createUserService, updateUserService } from "./user.service";
 
 export const createUser = (parent, args) => {
   const { value, error } = CreateUserVal(args.input);
@@ -15,4 +15,11 @@ export const createUser = (parent, args) => {
   const user = createUserService(value);
 
   return user;
+};
+
+export const updateUser = (parent, args) => {
+  const user = args.input;
+
+  const updatedUser = updateUserService(user);
+  return updatedUser;
 };
