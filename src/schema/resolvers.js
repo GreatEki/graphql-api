@@ -1,6 +1,10 @@
-import { UserList, MovieList } from "../MockDB.js";
+import { UserList } from "../MockDB.js";
 import { createUser, deleteUser, updateUser } from "../lib/user/user.mutations";
-import { createBusiness } from "../lib/business/business.mutations.js";
+import {
+  createBusiness,
+  deleteBusiness,
+  updateBusinessInfo,
+} from "../lib/business/business.mutations.js";
 import {
   getBusinessess,
   getBusiness,
@@ -18,16 +22,6 @@ const resolvers = {
       return user;
     },
 
-    movies: () => {
-      return MovieList;
-    },
-
-    movie: (_, args) => {
-      const name = args.name;
-      const movie = MovieList.find((mv) => mv.name === name);
-      return movie;
-    },
-
     getBusinesses: getBusinessess,
     getBusiness: getBusiness,
   },
@@ -37,6 +31,8 @@ const resolvers = {
     updateUser: updateUser,
     deleteUser: deleteUser,
     createBusiness: createBusiness,
+    updateBusiness: updateBusinessInfo,
+    deleteBusiness: deleteBusiness,
   },
 };
 

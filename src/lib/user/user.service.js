@@ -32,6 +32,6 @@ export function deleteUserService(userId) {
   const theUser = UserList.find((user) => user.id === Number(userId));
   if (!theUser) return null;
 
-  UserList.filter((user) => user.id !== theUser.id);
+  _.remove(UserList, (user) => user.id === Number(userId));
   return `User ${theUser.firstName} deleted`;
 }

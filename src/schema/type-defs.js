@@ -8,13 +8,6 @@ const typeDefs = gql`
     email: String!
   }
 
-  type Movie {
-    id: ID!
-    name: String!
-    yearOfPublication: Int!
-    isInTheaters: Boolean!
-  }
-
   type Business {
     id: ID!
     name: String!
@@ -41,11 +34,16 @@ const typeDefs = gql`
     owner: ID!
   }
 
+  input UpdateBusinessInput {
+    id: ID!
+    name: String!
+    yearOfEstablishment: Int!
+    owner: ID!
+  }
+
   type Query {
     users: [User!]!
     user(id: ID!): User
-    movies: [Movie]
-    movie(name: String!): Movie
     getBusinesses: [Business]
     getBusiness(id: ID!): Business
   }
@@ -55,6 +53,8 @@ const typeDefs = gql`
     updateUser(input: updateUserInput!): User
     deleteUser(id: ID!): String
     createBusiness(input: CreateBusinessInput!): Business
+    updateBusiness(input: UpdateBusinessInput!): Business
+    deleteBusiness(id: ID!): String
   }
 `;
 
