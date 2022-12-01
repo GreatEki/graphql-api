@@ -45,4 +45,22 @@ export const Customer = [
     email: "frankthomas@mail.com",
   },
 ];
+
+export const BusinessCustomer = [
+  {
+    id: 1,
+    business: {
+      id: 1,
+      name: "John Doe Ventures Ltd",
+      yearOfEstablishment: 2022,
+      owner: 1,
+    },
+    customer: {
+      id: 1,
+      firstName: "Frank",
+      lastName: "Thomas",
+      email: "frankthomas@mail.com",
+    },
+  },
+];
 export { UserList, MovieList };

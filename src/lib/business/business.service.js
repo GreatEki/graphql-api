@@ -1,4 +1,4 @@
-import { Business, UserList } from "../../MockDB";
+import { Business, UserList, Customer, BusinessCustomer } from "../../MockDB";
 import { NotFoundError } from "../../errors";
 import _ from "lodash";
 
@@ -44,4 +44,23 @@ export function deleteBusinessService(businessId) {
 
   _.remove(Business, (bus) => bus.id === Number(businessId));
   return `Business deleted`;
+}
+
+export function addCustomerToBusinessService(businessId, customerId) {
+  const business = Business.find((bus) => bus.id === Number(businessId));
+
+  if (!business) throw new NotFoundError("No Business found for record id");
+
+  const customer = Customer.find((cus) => cus.id === Number(customerId));
+
+  if (!customer) throw new NotFoundError("No customer found for record id");
+
+  const lastId = BusinessCustomer[BusinessCustomer.length - 1].id;
+  const newBusCustomers = {
+    id: lastId,
+    business,
+    customer,
+  };
+  BusinessCustomer.push(newBusCustomers);
+  return newBusCustomers;
 }

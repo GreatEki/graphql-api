@@ -4,6 +4,7 @@ import {
   createBusiness,
   deleteBusiness,
   updateBusinessInfo,
+  addCustomerToBusiness,
 } from "../lib/business/business.mutations.js";
 import {
   getBusinesses,
@@ -45,6 +46,7 @@ const resolvers = {
     addCustomer,
     updateCustomer,
     deleteCustomer,
+    addCustomerToBusiness,
   },
 };
 

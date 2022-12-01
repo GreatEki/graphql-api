@@ -16,14 +16,16 @@ const typeDefs = gql`
   }
 
   type Customer {
+    id: ID!
     firstName: String!
     lastName: String!
     email: String!
   }
 
   type BusinessCustomers {
-    business: ID!
-    customer: ID!
+    id: ID!
+    business: Business!
+    customer: Customer!
   }
 
   input CreateUserInput {
@@ -90,7 +92,7 @@ const typeDefs = gql`
     addCustomer(input: AddCustomerInput!): Customer
     updateCustomer(input: UpdateCustomerInput!): Customer
     deleteCustomer(id: ID!): String
-    addCustomerToBusiness(input: AddCustomerBusinessInput): BusinessCustomers
+    addCustomerToBusiness(input: AddCustomerBusinessInput!): BusinessCustomers
   }
 `;
 

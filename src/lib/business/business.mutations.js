@@ -1,4 +1,7 @@
-import { CreateBusinessVal } from "./business.validation";
+import {
+  CreateBusinessVal,
+  AddCustomerToBusinessVal,
+} from "./business.validation";
 import * as service from "./business.service";
 import { BadRequestError } from "../../errors";
 
@@ -31,4 +34,22 @@ export const deleteBusiness = (_, args) => {
   const result = service.deleteBusinessService(id);
 
   return result;
+};
+
+export const addCustomerToBusiness = (parent, args) => {
+  const { value, error } = AddCustomerToBusinessVal(args.input);
+
+  if (error)
+    throw new BadRequestError(
+      "Failed to add customer to business: Validation Error",
+      null,
+      error
+    );
+
+  const businessCustomer = service.addCustomerToBusinessService(
+    value.business,
+    value.customer
+  );
+
+  return businessCustomer;
 };

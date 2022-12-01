@@ -13,3 +13,19 @@ export const CreateBusinessVal = (user) => {
   });
   return { value, error };
 };
+
+const AddCustomerToBusinessValSchema = Joi.object({
+  business: Joi.number().required(),
+  customer: Joi.number().required(),
+});
+
+export const AddCustomerToBusinessVal = (businessCustomer) => {
+  const { value, error } = AddCustomerToBusinessValSchema.validate(
+    businessCustomer,
+    {
+      allowUnknown: true,
+      abortEarly: false,
+    }
+  );
+  return { value, error };
+};
