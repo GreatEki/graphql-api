@@ -1,5 +1,5 @@
 import { UserList, MovieList } from "../MockDB.js";
-import { createUser} from '../lib/user/user.mutations'
+import { createUser } from "../lib/user/user.mutations";
 
 const resolvers = {
   Query: {
@@ -24,26 +24,8 @@ const resolvers = {
     },
   },
 
-  //   creating a resolve for custom type definitions
-  User: {
-    favouriteMovies: () => {
-      const favMovies = MovieList.filter(
-        (movie) =>
-          movie.yearOfPublication >= 2000 && movie.yearOfPublication <= 2010
-      );
-      return favMovies;
-    },
-  },
-
   Mutation: {
-    createUser: (parent, args) => {
-      const user = args.input;
-      //   get last id in UserList
-      const lastId = UserList[UserList.length - 1].id;
-      user.id = lastId + 1;
-      UserList.push(user);
-      return user;
-    },
+    createUser: createUser,
 
     updateUser: (parent, args) => {
       const { id, name, username, age, nationality } = args.input;
@@ -69,8 +51,6 @@ const resolvers = {
       UserList.filter((user) => user.id !== theUser.id);
       return `User ${theUser.name} deleted`;
     },
-
-    createUserDB: createUser
   },
 };
 

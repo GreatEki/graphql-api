@@ -3,12 +3,9 @@ import { gql } from "apollo-server";
 const typeDefs = gql`
   type User {
     id: ID!
-    name: String!
-    username: String!
-    age: Int!
-    nationality: String!
-    friends: [User]
-    favouriteMovies: [Movie]
+    firstName: String!
+    lastName: String!
+    email: String!
   }
 
   type Movie {
@@ -18,37 +15,36 @@ const typeDefs = gql`
     isInTheaters: Boolean!
   }
 
+  type Business {
+    id: ID!
+    name: String!
+    yearOfEstablishment: Int!
+    owner: ID!
+  }
+
   type Query {
     users: [User!]!
     user(id: ID!): User
     movies: [Movie]
     movie(name: String!): Movie
+    getBusinesses: [Business]
+    getBusiness(id: ID!): Business
   }
 
   input CreateUserInput {
-    name: String!
-    username: String!
-    age: Int!
-    nationality: String = Brazil
+    firstName: String!
+    lastName: String!
+    email: String!
   }
 
   input updateUserInput {
     id: ID!
-    name: String
-    username: String
-    age: Int
-    nationality: String
-  }
-
-  type UserDB {
     firstName: String!
     lastName: String!
     email: String!
-    address: String!
-    phoneNumber: String!
   }
 
-  input CreateUserInputDB {
+  type UserDB {
     firstName: String!
     lastName: String!
     email: String!
@@ -60,7 +56,6 @@ const typeDefs = gql`
     createUser(input: CreateUserInput!): User!
     updateUser(input: updateUserInput!): User
     deleteUser(id: ID!): String
-    createUserDB(input: CreateUserInputDB!): UserDB
   }
 `;
 

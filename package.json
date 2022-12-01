@@ -13,8 +13,7 @@
   "dependencies": {
     "@hapi/joi": "^17.1.1",
     "apollo-server": "^3.11.1",
-    "graphql": "^16.6.0",
-    "mongoose": "^6.7.5"
+    "graphql": "^16.6.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.20"

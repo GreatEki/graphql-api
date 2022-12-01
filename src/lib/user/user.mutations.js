@@ -1,13 +1,9 @@
-import { User } from "../../entities";
 import { BadRequestError } from "../../errors";
 import { CreateUserVal } from "./user.validation";
+import { createUserService } from "./user.service";
 
 export const createUser = (parent, args) => {
-  //   const { firstName, lastName, email, address, phoneNumber } = args.input;
-
   const { value, error } = CreateUserVal(args.input);
-
-  console.log(error);
 
   if (error)
     throw new BadRequestError(
@@ -16,7 +12,7 @@ export const createUser = (parent, args) => {
       error
     );
 
-  console.log(value);
+  const user = createUserService(value);
 
-  return value;
+  return user;
 };
