@@ -1,6 +1,11 @@
 import { BadRequestError } from "../../errors";
 import { CreateUserVal } from "./user.validation";
-import { createUserService, updateUserService } from "./user.service";
+import {
+  createUserService,
+  updateUserService,
+  deleteUserService,
+} from "./user.service";
+import { UserList } from "../../MockDB";
 
 export const createUser = (parent, args) => {
   const { value, error } = CreateUserVal(args.input);
@@ -22,4 +27,11 @@ export const updateUser = (parent, args) => {
 
   const updatedUser = updateUserService(user);
   return updatedUser;
+};
+
+export const deleteUser = (parent, args) => {
+  const { id } = args;
+  const result = deleteUserService(id);
+
+  return result;
 };

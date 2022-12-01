@@ -44,18 +44,17 @@ const typeDefs = gql`
     email: String!
   }
 
-  type UserDB {
-    firstName: String!
-    lastName: String!
-    email: String!
-    address: String!
-    phoneNumber: String!
+  input CreateBusinessInput {
+    name: String!
+    yearOfEstablishment: Int!
+    owner: ID!
   }
 
   type Mutation {
     createUser(input: CreateUserInput!): User!
     updateUser(input: updateUserInput!): User
     deleteUser(id: ID!): String
+    createBusiness(input: CreateBusinessInput!): Business
   }
 `;
 

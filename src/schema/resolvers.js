@@ -1,5 +1,6 @@
 import { UserList, MovieList } from "../MockDB.js";
-import { createUser, updateUser } from "../lib/user/user.mutations";
+import { createUser, deleteUser, updateUser } from "../lib/user/user.mutations";
+import { createBusiness } from "../lib/business/business.mutations.js";
 
 const resolvers = {
   Query: {
@@ -26,17 +27,9 @@ const resolvers = {
 
   Mutation: {
     createUser: createUser,
-
     updateUser: updateUser,
-
-    deleteUser: (parent, args) => {
-      const { id } = args;
-      const theUser = UserList.find((user) => user.id === Number(id));
-      if (!theUser) return null;
-
-      UserList.filter((user) => user.id !== theUser.id);
-      return `User ${theUser.name} deleted`;
-    },
+    deleteUser: deleteUser,
+    createBusiness: createBusiness,
   },
 };
 

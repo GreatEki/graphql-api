@@ -28,5 +28,12 @@ const MovieList = [
   },
 ];
 
-const Business = [];
+export const Business = [
+  {
+    id: 1,
+    name: "John Doe Ventures Ltd",
+    yearOfEstablishment: 2022,
+    owner: 1,
+  },
+];
 export { UserList, MovieList };
