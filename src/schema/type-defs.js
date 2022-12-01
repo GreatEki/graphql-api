@@ -63,6 +63,13 @@ const typeDefs = gql`
     customer: ID!
   }
 
+  input UpdateCustomerInput {
+    id: ID!
+    firstName: String!
+    lastName: String!
+    email: String!
+  }
+
   type Query {
     users: [User!]!
     user(id: ID!): User
@@ -81,6 +88,8 @@ const typeDefs = gql`
     updateBusiness(input: UpdateBusinessInput!): Business
     deleteBusiness(id: ID!): String
     addCustomer(input: AddCustomerInput!): Customer
+    updateCustomer(input: UpdateCustomerInput!): Customer
+    deleteCustomer(id: ID!): String
     addCustomerToBusiness(input: AddCustomerBusinessInput): BusinessCustomers
   }
 `;

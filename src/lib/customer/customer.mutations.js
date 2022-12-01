@@ -16,3 +16,17 @@ export const addCustomer = (parent, args) => {
 
   return customer;
 };
+
+export const updateCustomer = (parent, args) => {
+  const customer = args.input;
+
+  const updCustomer = service.updateCustomerService(customer);
+  return updCustomer;
+};
+
+export const deleteCustomer = (parent, args) => {
+  const customerId = args.id;
+
+  const result = service.deleteCustomerService(customerId);
+  return result;
+};

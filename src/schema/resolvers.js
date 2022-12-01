@@ -10,7 +10,11 @@ import {
   getBusiness,
 } from "../lib/business/business.queries.js";
 
-import { addCustomer } from "../lib/customer/customer.mutations.js";
+import {
+  addCustomer,
+  updateCustomer,
+  deleteCustomer,
+} from "../lib/customer/customer.mutations.js";
 import { getCustomer, getCustomers } from "../lib/customer/customer.queries.js";
 
 const resolvers = {
@@ -39,6 +43,8 @@ const resolvers = {
     updateBusiness: updateBusinessInfo,
     deleteBusiness,
     addCustomer,
+    updateCustomer,
+    deleteCustomer,
   },
 };
 
