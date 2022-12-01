@@ -1,4 +1,5 @@
 import { UserList, MovieList } from "../MockDB.js";
+import { createUser} from '../lib/user/user.mutations'
 
 const resolvers = {
   Query: {
@@ -68,6 +69,8 @@ const resolvers = {
       UserList.filter((user) => user.id !== theUser.id);
       return `User ${theUser.name} deleted`;
     },
+
+    createUserDB: createUser
   },
 };
 

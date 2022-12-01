@@ -40,10 +40,27 @@ const typeDefs = gql`
     nationality: String
   }
 
+  type UserDB {
+    firstName: String!
+    lastName: String!
+    email: String!
+    address: String!
+    phoneNumber: String!
+  }
+
+  input CreateUserInputDB {
+    firstName: String!
+    lastName: String!
+    email: String!
+    address: String!
+    phoneNumber: String!
+  }
+
   type Mutation {
     createUser(input: CreateUserInput!): User!
     updateUser(input: updateUserInput!): User
     deleteUser(id: ID!): String
+    createUserDB(input: CreateUserInputDB!): UserDB
   }
 `;
 
