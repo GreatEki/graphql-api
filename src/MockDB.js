@@ -36,4 +36,13 @@ export const Business = [
     owner: 1,
   },
 ];
+
+export const Customer = [
+  {
+    id: 1,
+    firstName: "Frank",
+    lastName: "Thomas",
+    email: "frankthomas@mail.com",
+  },
+];
 export { UserList, MovieList };

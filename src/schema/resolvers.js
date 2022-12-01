@@ -6,9 +6,12 @@ import {
   updateBusinessInfo,
 } from "../lib/business/business.mutations.js";
 import {
-  getBusinessess,
+  getBusinesses,
   getBusiness,
 } from "../lib/business/business.queries.js";
+
+import { addCustomer } from "../lib/customer/customer.mutations.js";
+import { getCustomer, getCustomers } from "../lib/customer/customer.queries.js";
 
 const resolvers = {
   Query: {
@@ -22,17 +25,20 @@ const resolvers = {
       return user;
     },
 
-    getBusinesses: getBusinessess,
-    getBusiness: getBusiness,
+    getBusinesses,
+    getBusiness,
+    getCustomers,
+    getCustomer,
   },
 
   Mutation: {
-    createUser: createUser,
-    updateUser: updateUser,
-    deleteUser: deleteUser,
-    createBusiness: createBusiness,
+    createUser,
+    updateUser,
+    deleteUser,
+    createBusiness,
     updateBusiness: updateBusinessInfo,
-    deleteBusiness: deleteBusiness,
+    deleteBusiness,
+    addCustomer,
   },
 };
 

@@ -1,7 +1,7 @@
 import { Business } from "../../MockDB";
 import * as service from "./business.service";
 
-export const getBusinessess = () => {
+export const getBusinesses = () => {
   return Business;
 };
 

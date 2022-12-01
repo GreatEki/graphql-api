@@ -15,6 +15,17 @@ const typeDefs = gql`
     owner: ID!
   }
 
+  type Customer {
+    firstName: String!
+    lastName: String!
+    email: String!
+  }
+
+  type BusinessCustomers {
+    business: ID!
+    customer: ID!
+  }
+
   input CreateUserInput {
     firstName: String!
     lastName: String!
@@ -41,11 +52,25 @@ const typeDefs = gql`
     owner: ID!
   }
 
+  input AddCustomerInput {
+    firstName: String!
+    lastName: String!
+    email: String!
+  }
+
+  input AddCustomerBusinessInput {
+    business: ID!
+    customer: ID!
+  }
+
   type Query {
     users: [User!]!
     user(id: ID!): User
     getBusinesses: [Business]
     getBusiness(id: ID!): Business
+    getCustomers: [Customer]
+    getCustomer(id: ID!): Customer
+    getBusinessCustomers(businessId: ID!): BusinessCustomers
   }
 
   type Mutation {
@@ -55,6 +80,8 @@ const typeDefs = gql`
     createBusiness(input: CreateBusinessInput!): Business
     updateBusiness(input: UpdateBusinessInput!): Business
     deleteBusiness(id: ID!): String
+    addCustomer(input: AddCustomerInput!): Customer
+    addCustomerToBusiness(input: AddCustomerBusinessInput): BusinessCustomers
   }
 `;
 
